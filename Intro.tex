@@ -1,0 +1,37 @@
+Let \(\Sigma \subset \R^{n+1}\) be a two-sided, connected, embedded hypersurface, and fix a unit normal vector field \(\nu \colon \Sigma \to \Sp^n\). Recall that, since \(\R^{n+1}\) is simply connected, if \(\Sigma\) is also complete (equivalently, without boundary and embedded as closed subset) then \(\Sigma\) is orientable and two-sided. Since \(T_x\Sigma= T_{\nu(x)}\Sp^n\) as subspaces of \(\R^{n+1}\) for every \(x \in \Sigma\), the differential \(\dif \nu_x \colon T_x\Sigma \to T_x\Sigma \) is an endomorphism of \(T_x\Sigma\), called \emph{shape operator}. The bilinear form
+\[
+    A_\Sigma(X,Y) \coloneq -X \cdot \dif \nu(Y)
+\]
+is the \emph{second fundamental form} of \(\Sigma\). Its trace \(H_\Sigma\) is the mean curvature of \(\Sigma\).
+
+\begin{thm}[First variation formula]
+For every \(\vp \in C^\infty_c(\Sigma)\), let \(\Sigma_t \coloneq \{ x+t\vp(x)\nu(x) \colon x \in \Sigma\}\). 
+Then
+\begin{equation}
+    \left.\frac{\dif}{\dif t}\right|_{t=0}\Haus^n(\Sigma_t) = \int_\Sigma H_\Sigma\vp \ \dif \Haus^n.
+\end{equation}
+\end{thm}
+
+Thus \(\Sigma\) is a minimal hypersurface (i.e. stationary for the \(n\)-area functional) if and only if \(H \equiv 0\). 
+
+If \(u \colon \Omega \subset \R^n \to \R\) is a smooth function, the mean curvature of its graph is
+\[
+    H_{\gr(u)} = \dive \left( \frac{\nabla u}{\sqrt{1+|\nabla u|^2}} \right)
+\]
+so \(\gr(u)\) is a minimal surface if and only if \(u\) solves
+\begin{equation}\label{eq: MSE}
+    \dive \left( \frac{\nabla u}{\sqrt{1+|\nabla u|^2}} \right) = 0. \tag{MSE}
+\end{equation}
+
+
+\begin{pbm}[Bernstein]
+    Is every \emph{entire} solution \(u \colon \R^n \to \R\) of \eqref{eq: MSE} always affine?
+\end{pbm}
+
+This is a rigidity problem of a non linear PDE, like Liouville's theorem for harmonic functions. However, the non-linearity makes the answer quite a surprise. 
+\begin{thm}\label{thm: solution of Bernstein problem}
+    If \(n\le 7\), every entire solution \(u \colon \R^n \to \R\) of \eqref{eq: MSE} is affine.
+
+    If \(n \ge 8\), there exists a non-affine entire solution \(u \colon \R^n \to \R\) of \eqref{eq: MSE}.
+\end{thm}
+This result has been proved by Bernstein \cite{Bernstein1927} for \(n=2\), De Giorgi \cite{DeGiorgi_EstensioneBernstein1965} for \(n=3\), Almgren \cite{Almgren_InteriorRegularity} for \(n=4\), Simons \cite{Simons_MinimalVarieties1968} for \(5\le n\le 7\), and by Bombieri, De Giorgi and Giusti \cite{BombieriDeGiorgiGiusti_MinimalCones1969} for \(n\ge 8\).

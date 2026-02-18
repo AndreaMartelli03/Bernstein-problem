@@ -1,0 +1,111 @@
+
+\subsection{Tangent cones at infinity}
+In this section, given a complete area minimizing hypersurface \(\Sigma \subset \R^{n+1}\), we construct ‘‘tangent cones at infinity'' by a \emph{blow down} procedure.
+
+\begin{cor}[Existence of the tangent cone at infinity]\label{cor: existence of tangent cone at infinity}
+    If \(\Sigma \subset \R^{n+1}\) is an area minimizing hypersurface, then there exists a sequence \(\lambda_h \to \infty\) and an area minimizing cone \(C\) such that \((\eta_{0,\lambda_h})_\#\llbracket\Sigma\rrbracket \weakstarto  C\).
+\end{cor}
+\begin{proof}
+    By the extrinsic volume growth estimate of Theorem~\ref{thm: quadratic area growth for entire minimal graphs}, for every \(r>0\)
+    \[
+        \|\Sigma\|(B_r) =  \Haus^n(\Sigma \cap B_r) \le \frac{(n+1) \omega_{n+1}}{2} r^n,
+    \]
+    hence
+    \[
+        \Theta_\Sigma(\infty) \coloneq \lim_{r \to \infty}\Theta_\Sigma(0,r) < \infty.
+    \]
+    Fix a sequence \(\lambda_h \to \infty\) and let \(T_h = (\eta_{0,\lambda})_\#\llbracket\Sigma \rrbracket\). Since
+    \[
+        \|T_h\|(B_r) = \Haus^n((\lambda_h^{-1}\Sigma) \cap B_r) = \lambda_h^{-n}\Haus^n(\Sigma \cap B_{\lambda_hr})
+    \]
+    and \(\de T_h=0\), for every \(r>0\)
+    \[
+        \|T_h\|(B_r) \le \Theta_\Sigma(\infty)\omega_n r^n,
+    \]
+    so by weak* compactness there exists \(C \in \mathcal{I}_n(\R^{n+1})\) such that up to a subsequence \(T_h \weakstarto C\). By the closure of area minimizing currents, \(T\) is area minimizing. Since \(\|T_h\| \weakstarto \|C\|\) as measures, by lower semicontinuity on open sets and upper semicontinuity on compact sets
+    \[
+        \|T_h\|(B_r) \to \|C\|(B_r)
+    \]
+    for every \(r>0\) such that \(\de B_r \cap \left( \spt \|C\| \cup \bigcup_h\spt\|T_h\| \right) = \varnothing\), i.e., for all \(r>0\) except for at most countable set. Thus
+    \[
+        \Theta_C(0,r) = \lim_{h \to \infty} \Theta_{T_h}(0,r) = \lim_{h \to \infty} \frac{\Haus^n(\Sigma \cap B_{\lambda_hr})}{\omega_n \lambda_h^n r^n} = \Theta_\Sigma(\infty),
+    \]
+    so by the rigidity statement of Theorem~\ref{thm: monotonicity formula} \(T\) is a cone with vertex 0.
+\end{proof}
+
+\begin{defn}
+    A cone \(C\) as in Corollary~\ref{cor: existence of tangent cone at infinity} is called a \emph{tangent cone at infinity} of \(\Sigma\).
+\end{defn}
+
+
+\subsection{A weaker Bernstein problem}
+
+\begin{thm}\label{thm: Bernstein for area minimizing}
+    Let \(\Sigma \subset \R^{n+1}\) be a complete area minimizing hypersurface. If \(n+1 \le 7\), then \(\Sigma\) is a hyperplane.
+\end{thm}
+\begin{proof}
+    Let \(C\) be a tangent cone at infinity, and observe that \(\Theta_C \equiv \Theta_\Sigma(\infty)\). By Corollary~\ref{cor: every area minimizing cone is flat for n<8}, \(C\) is a hyperplane, so \(\Theta_C \equiv 1\). Then by the monotonicity formula (assuming without loss of generality that \(0 \in \Sigma\))
+    \[
+        1=\lim_{r \to 0^+}\Theta_\Sigma(0,r) \le \Theta_\Sigma(\infty)=\Theta_C=1,
+    \]
+    so \(\Theta_\Sigma \equiv 1\). The rigidity case of the monotonicity formula implies that \(\Sigma\) is a cone, so \(\Sigma = C\) is a hyperplane.
+\end{proof}
+
+Since minimal graphs are calibrated, this implies that if \(u \colon \R^n \to \R\) solves \eqref{eq: MSE} and \(n \le 6\), then \(u\) is affine. 
+
+For every \(n+1\ge 8\), Theorem~\ref{thm: C_S is area minimizing} yields counterexamples. 
+
+\subsection{The ‘‘cone version'' of the Bernstein problem}
+Recall also the following.
+\begin{thm}[Strong maximum principle for minimal hypersurfaces]
+    Let \(\Sigma_1\) and \(\Sigma_2\) be minimal hypersurfaces in \(\R^{n+1}\) and suppose that there exists an open set \(\Omega \subset \R^{n+1}\) such that \(\Sigma_1\) separates \(\Omega\) in two connected components and \(\Sigma_2\) lies in the closure one of them. If \(\Sigma_2\cap\Sigma_1\cap \Omega\ne \varnothing\), then \(\Sigma_2\cap\Omega \subset \Sigma_1\).
+\end{thm}
+\begin{proof}
+    Expressing \(\Sigma_1\) and \(\Sigma_2\) as graphs of functions \(u_1\le u_2\) locally, then \(u_1\) and \(u_2\) solve \(\eqref{eq: MSE}\) \(v = u_2-u_1 \ge 0\) solves the second order elliptic PDE
+    \[
+        \dive(A\nabla v) = 0,
+    \]
+    where 
+    \[
+        A(x) = \int_0^1 \frac{\nabla u_1(x) + t\nabla u_2(x)}{\sqrt{1+|\nabla u_1(x) + t\nabla u_2(x)|^2}} \dif t,
+    \]
+    so the strong maximum implies that either \(v>0\) or \(v \equiv 0\). If \(\Sigma_1\) and \(\Sigma_2\) touch, \(v\equiv0\) and with an obvious connectedness argument we get that \(\Sigma_2 \cap \Omega \subset \Sigma_1\).
+\end{proof}
+
+\begin{thm}[De Giorgi]\label{thm: De Giorgi splitting}
+    Let \(u \colon \R^n \to \R\) be an entire solution of \eqref{eq: MSE}. Then any tangent cone at infinity of \(\gr(u)\) splits as \(C'\times \R\).
+\end{thm}
+\begin{proof}
+    Let \(\Sigma=\gr(u)\). Since it's a graph, every tangent cone at infinity has density 1 at almost every point, so every tangent cone at infinity is of the form \(\llbracket C\rrbracket\) for some cone \(C\) with vertex 0. Fix one and let \(\lambda_k \to \infty\) such that \((\eta_{0,\lambda_k})_\# \llbracket\Sigma\rrbracket \weakstarto \llbracket C \rrbracket\).
+
+    Since \(\Sigma\) is a graph, \(\Sigma + \lambda_k e_{n+1}\) is disjoint from \(\Sigma\), so \(C\) lies on one side of \(C+e_{n+1}\). The strong maximum principle for minimal hypersurfaces (applied to the regular part of \(C\), which is open and dense in \(C\)) implies that either \(C=C+e_{n+1}\) or \(C\) and \(C+e_{n+1}\) are disjoint. In the first case, we conclude that \(C\) is invariant under translations in the \(e_{n+1}\)-direction, so \(C=C'\times \R\). In the second case, we apply Theorem~\ref{thm: Bernstein for cones} to conclude that \(C\) is a hyperplane.
+\end{proof}
+
+
+
+\begin{thm}\label{thm: Bernstein for cones}
+    If \(C\) is an area minimizing \(n\)-cone in \(\R^{n+1}\) that is disjoint from \(C+e_{n+1}\), then \(C\) is a hyperplane.
+\end{thm}
+
+This is a sort of Bernstein problem for cones. Indeed, by scaling invariance, saying that \(C\) is disjoint from \(C+e_{n+1}\) is like saying that the family \(C+\lambda e_{n+1}\) for \(\lambda \in \R\) is disjoint, and this is a weaker notion of being a graph. For solving Bernstein problem we only need \(n=7\), and in this way by Corollary~\ref{cor: dim(Sing(C)) <= n-7} \(C\) is regular. For the general case one can use a more refined argument together with Remark~\ref{rmk: 1st eigenvalue on the link}.
+
+\begin{proof}[Proof for \(n=7\)]
+    by Corollary~\ref{cor: dim(Sing(C)) <= n-7} \(C\) is regular. Let \(\nu_S\) be a unit normal of the link \(S\) in \(\Sp^n\) and note that \(\nu(rv) \coloneq \nu_S(v)\) defines a unit normal of \(C\). The function \(u = \nu \cdot e_{n+1}\) is the Jacobi field generated by moving \(C\) along the \(e_{n+1}\)-direction. Moreover, up to choose the right unit normal, \(u \ge 0\) in a (punctured) neighborhood of 0, so \(u\ge 0\) everywhere. Since \(u\) does not depend on \(r\), 
+    \[
+        0= r^2L_Cu = \Delta_S u + |A_S|^2u=Lu,
+    \]
+    and the strong maximum principle implies that \(u>0\) everywhere.
+    Let \(\psi_1>0\) be an eigenfunction of \(L\) associated to \(\mu_1=\mu_1(S)\) (which can always be chosen with a sign). Then
+    \[
+        0 = \int_S Lu \psi_1 = \int_S u L\psi_1  = -\mu_1 \int_S u\psi_1, 
+    \]
+    so \(\mu_1=0\). But this happens if and only if \(S\) is a totally geodesic hypersphere of \(\Sp^n\), so \(C\) is a hyperplane.
+\end{proof}
+
+\subsection{Solution of the Bernstein problem}
+
+Let \(u \colon \R^n \to \R\) solve \eqref{eq: MSE} and \(\Sigma = \gr(u)\). Let \(C\) be a tangent cone at infinity of \(\Sigma\). By Theorem~\ref{thm: De Giorgi splitting}, \(C= C' \times \R\) for some other area minimizing cone \(C' \subset \R^n\). 
+
+If \(n\le 7\), then \(C' \cong \R^{n-1}\) is a hyperplane in \(\R^n\), so \(C \cong \R^n\) is a hyperplane in \(\R^{n+1}\). Then, as in the proof of Theorem~\ref{thm: Bernstein for area minimizing}, \(\Theta_\Sigma \equiv \Theta_C \equiv 1\), so \(\Sigma = C\) is a hyperplane.
+
+If \(n \ge 8\), Bombieri, De Giorgi and Giusti in \cite{BombieriDeGiorgiGiusti_MinimalCones1969} constructed a function \(u \colon \R^n \to \R\) solving \eqref{eq: MSE} and such that its graph has \(C_S \times \R^{n-8} \times \R\) as a tangent cone at infinity.

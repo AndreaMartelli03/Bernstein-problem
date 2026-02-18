@@ -1,0 +1,37 @@
+\begin{thm}[Bernstein]\label{thm: Bernstein}
+	All entire solutions \(u \colon \R^2 \to \R\) of \eqref{eq: MSE} are affine.
+\end{thm}
+\begin{proof}
+	Let \(\Sigma = \gr(u)\). 
+	The idea is to plug \(f=1\) into \eqref{eq: stability inequality} to prove that \(|A_\Sigma|^2=0\), which implies that the Gauss map is constant. However, we actually need to approximate it by compactly supported functions that we can test in \eqref{eq: stability inequality}. To do so, we can use a logarithmic cutoff trick: for any \(k \in \N\), let \(f_k \colon \R^3 \to \R\) be defined by (up to smoothing)
+	\[
+		f_k(x) \coloneq \begin{cases}
+			1 &\text{if }|x| \leq e^k \\
+			2- \frac{\log |x|}{\log R} &\text{if }e^k< |x| \leq e^{2k} \\
+			0 &\text{if }|x| > e^{2k}
+		\end{cases}
+	\]
+	Then, if \(r=|x|\) is the distance from the origin
+	\[
+		|\nabla_\Sigma f_k| \leq |\nabla f_k | = \frac{1}{k r} \qquad e^k \leq r \leq e^{2k}.
+	\]
+	Now one would like to integrate in spherical coordinates and then estimate. Recall that by Theorem~\ref{thm: quadratic area growth for entire minimal graphs}, 
+	\[
+		\Area(\Sigma \cap B_r) \leq 2\pi r^2 \qquad \forall r>0.
+	\]
+	Moreover, since for all \(k+1 \leq \ell \leq 2k\), if \(A_\ell = A(e^\ell,e^{\ell-1}) =B_{e^\ell} \setminus B_{e^{\ell-1}} \)
+	\[
+		\sup_{A_\ell \cap \Sigma} |\nabla_\Sigma f_k|^2 \leq \frac{1}{k^2 e^{2\ell-2}}.
+	\]
+	Then we can estimate
+    \begin{equation}\label{eq: Bernstein estimate}
+	\begin{aligned}
+		\int_\Sigma |\nabla_\Sigma f|^2 &\leq \sum_{\ell=k+1}^{2k} \int_{A_\ell \cap \Sigma} |\nabla_\Sigma f|^2 \\
+		&\leq \sum_{\ell=k+1}^{2k} \frac{\Area(B_{e^\ell} \cap \Sigma)}{k^2 e^{2\ell-2}} \\
+		&\leq \frac{2\pi e^2}{k} \longrightarrow 0.
+	\end{aligned}
+    \end{equation}
+	Then the second fundamental form \(A_\Sigma \equiv 0\), and so the unit normal is constant. This means that \(\Sigma\) is planar, hence \(u\) an affine function.
+\end{proof}
+
+This proof cannot work in higher dimension, because the \emph{quadratic} extrinsic volume growth estimate is crucial. 
